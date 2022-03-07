@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Header } from '../../components/Header';
 import api from '../../services/api';
-import Food from '../../components/Food';
+import { Food } from '../../components/Food';
 import { ModalAddFood } from '../../components/ModalAddFood';
 import { ModalEditFood } from '../../components/ModalEditFood';
 import { FoodsContainer } from './styles';
@@ -10,7 +10,7 @@ import { FoodsContainer } from './styles';
 export interface IFood {
   id: number;
   price: string;
-  title: string;
+  name: string;
   description: string;
   available: boolean;
   image: string;
@@ -64,7 +64,7 @@ export function Dashboard() {
     }
   }
 
-  const handleDeleteFood = async (id: number) => {
+  const handleDeleteFood = async (id: number) => {  
     await api.delete(`/foods/${id}`);
 
     const foodsFiltered = foods.filter(food => food.id !== id);

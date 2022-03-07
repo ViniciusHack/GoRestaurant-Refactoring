@@ -25,7 +25,6 @@ export function ModalAddFood({setIsOpen, handleAddFood, isOpen}: ModalAddFoodPro
   const handleSubmit = async (data: Omit<IFood, 'id' | 'available'>) => {
 
     handleAddFood(data);
-    console.log(data, setIsOpen())
     setIsOpen();
   };
 
