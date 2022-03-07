@@ -4,22 +4,16 @@ import { FiCheckSquare } from 'react-icons/fi';
 import { Form } from './styles';
 import { Input } from '../Input';
 import { Modal } from '../Modal'
+import { IFood } from '../../pages/Dashboard';
 
 interface ModalAddFoodProps {
   setIsOpen: () => void;
-  handleAddFood: (data: DataProps) => void;
+  handleAddFood: (data: any) => void;
   isOpen: boolean;
 }
 
-export interface DataProps {
-  name: string;
-  image: string;
-  description: string;
-  price: string;
-}
 
 export function ModalAddFood({setIsOpen, handleAddFood, isOpen}: ModalAddFoodProps) {
-
   const formRef = useRef(null)
 
   // constructor(props) {
@@ -28,9 +22,10 @@ export function ModalAddFood({setIsOpen, handleAddFood, isOpen}: ModalAddFoodPro
   //   this.formRef = createRef();
   // }
 
-  const handleSubmit = async (data: DataProps) => {
+  const handleSubmit = async (data: Omit<IFood, 'id' | 'available'>) => {
 
     handleAddFood(data);
+    console.log(data, setIsOpen())
     setIsOpen();
   };
 

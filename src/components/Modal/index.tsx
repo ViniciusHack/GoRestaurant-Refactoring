@@ -9,13 +9,10 @@ interface ModalProps {
 
 export function Modal({isOpen ,setIsOpen, children}: ModalProps) {
   const [modalStatus, setModalStatus] = useState(isOpen)
-  const [isOpenState, setIsOpenState] = useState(false)
 
   useEffect(() => {
-    if(isOpenState !== isOpen) {
-      setModalStatus(isOpen)
-    }
-  }, [isOpenState, isOpen])
+    setModalStatus(isOpen)
+  }, [isOpen])
 
   // componentDidUpdate(prevProps) {
   //   if (prevProps.isOpen !== isOpen) {

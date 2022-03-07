@@ -1,16 +1,16 @@
-import { Component, createRef, useRef } from 'react';
+import { useRef } from 'react';
 import { FiCheckSquare } from 'react-icons/fi';
 
 import { Form } from './styles';
 import { Modal } from '../Modal';
 import { Input } from '../Input';
-import { DataProps } from '../ModalAddFood';
+import { IFood } from '../../pages/Dashboard';
 
 interface ModalEditFoodProps {
   setIsOpen: () => void;
   isOpen: boolean;
   editingFood: Record<string, any>;
-  handleUpdateFood: (data: DataProps) => void;
+  handleUpdateFood: (data: IFood) => void;
 }
 
 export function ModalEditFood({setIsOpen, editingFood, handleUpdateFood, isOpen}: ModalEditFoodProps) {
@@ -22,7 +22,7 @@ export function ModalEditFood({setIsOpen, editingFood, handleUpdateFood, isOpen}
   //   this.formRef = createRef()
   // }
 
-  const handleSubmit = async (data: DataProps) => {
+  const handleSubmit = async (data: IFood) => {
 
     handleUpdateFood(data);
     setIsOpen();
